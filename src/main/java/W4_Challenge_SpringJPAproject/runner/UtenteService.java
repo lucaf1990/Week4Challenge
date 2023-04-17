@@ -23,13 +23,11 @@ public class UtenteService {
 	@Qualifier("NuovoUtente")
 	private ObjectProvider<Utente> createUtente;
 
-
-
 	public void creaUtente() {
-			for (int i = 0; i < 20; i++) {
-				insertUtente(createUtente.getObject());
-			}
-			System.out.println("Utenti correttamente salvati nel database");
+		for (int i = 0; i < 20; i++) {
+			insertUtente(createUtente.getObject());
+		}
+		System.out.println("Utenti correttamente salvati nel database");
 	}
 
 	private Utente insertUtente(Utente u) {

@@ -32,43 +32,47 @@ public class PrenotazioneService {
 		// controllare che utente non abbia gia prenotazione per quella data,
 		// postazione sia vuota per quella data
 
-		//
+		// METODO PER FARLO OPPURE QUERY
 		// List<Prenotazione> myList=u.getPrenotazione();
 		// myList.stream()
 		// .filter((prenotazione)->prenotazione.getPrenotazionePostazione()==of)
-		// .collect(Collectors.toList()); //se questo null non ho prenotazione epr la
+		// .collect(Collectors.toList()); //se questo null non ho prenotazione per la
 		// data di oggi
 
 		LocalDate checkDate = LocalDate.now();
 		if (of.isAfter(checkDate)) {
 			if (findPrenotazioneByUtenteAndData(u, of) == null) {
-				// vuol dire che lui non ha prenotazioni
+				// vuol dire che utente non ha prenotazioni
 				if (p.isPostazioneLibera()) {
-					// controllo post libera
+					// controllo postazione libera
 					// qui creo efettivamente la prenotazione
-
 					p.setPostazioneLibera(false);
 					ps.updatePostazione(p);
 					insertPrenotazione(nuovaPrenotazione.getObject(of, p, u));
 					System.out.println("Prenotazione inserita correttamente");
-				} else {System.out.println("Postazione già occupata, scegli un'altra postazione");}
+				} else {
+					System.out.println("Postazione già occupata, scegli un'altra postazione");
+				}
 
-			} else {System.out.println("Hai già una  prenotazione per questa data! Scegli un altra data");}
+			} else {
+				System.out.println("Hai già una  prenotazione per questa data! Scegli un altra data");
+			}
 
-		} else {System.out.println("Scegli una data futura per la prenotazione");}
+		} else {
+			System.out.println("Scegli una data futura per la prenotazione");
+		}
 
 	}
-	
+
 	private Prenotazione findPrenotazioneByUtenteAndData(Utente u, LocalDate ld) {
-		return 	pdr.findByUtenteAndPrenotazionePostazione(u,ld);
-		 
+		return pdr.findByUtenteAndPrenotazionePostazione(u, ld);
+
 	}
-	
 
 	Prenotazione nuovaPrenotazioneCiao(LocalDate of, Postazione p, Utente u) {
 		Prenotazione prenotazione = nuovaPrenotazione.getObject(of, p, u);
 		insertPrenotazione(prenotazione);
-return prenotazione;
+		return prenotazione;
 	}
 
 	private void insertPrenotazione(Prenotazione p) {

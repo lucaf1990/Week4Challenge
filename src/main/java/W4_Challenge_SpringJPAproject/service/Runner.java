@@ -48,11 +48,11 @@ public class Runner implements ApplicationRunner {
 		
 		
 		//FUNZIONE PER LA RICERCA DELL'UTENTE
-		//Utente u2 = utente.findUtenteByID(2l);
-		//Utente u3 = utente.findUtenteByID(3l);
-		//Utente u4 = utente.findUtenteByID(4l);
-		//Utente u5 = utente.findUtenteByID(5l);
-		//Utente u6 = utente.findUtenteByID(1l);
+		Utente u2 = utente.findUtenteByID(2l);
+		Utente u3 = utente.findUtenteByID(3l);
+		Utente u4 = utente.findUtenteByID(4l);
+		Utente u5 = utente.findUtenteByID(5l);
+		Utente u6 = utente.findUtenteByID(1l);
 		
 		
 		
@@ -62,15 +62,15 @@ public class Runner implements ApplicationRunner {
 		
 		
 		//FUNZIONE PER LA RICERCA DEGLI EDIFICI
-		//Edificio e= edificio.findEdificioByID(1l);	
-		//Edificio e2= edificio.findEdificioByID(2l);	
-		//Edificio e3= edificio.findEdificioByID(3l);	
-		//Edificio e4= edificio.findEdificioByID(4l);	
-		//Edificio e5= edificio.findEdificioByID(5l);	
-		//Edificio e6= edificio.findEdificioByID(6l);	
-		//Edificio e7= edificio.findEdificioByID(7l);	
-		//Edificio e8= edificio.findEdificioByID(8l);	
-		//Edificio e9= edificio.findEdificioByID(9l);	
+		Edificio e= edificio.findEdificioByID(1l);	
+		Edificio e2= edificio.findEdificioByID(2l);	
+		Edificio e3= edificio.findEdificioByID(3l);	
+		Edificio e4= edificio.findEdificioByID(4l);	
+		Edificio e5= edificio.findEdificioByID(5l);	
+		Edificio e6= edificio.findEdificioByID(6l);	
+		Edificio e7= edificio.findEdificioByID(7l);	
+		Edificio e8= edificio.findEdificioByID(8l);	
+	Edificio e9= edificio.findEdificioByID(9l);	
 
 		
 		
@@ -88,8 +88,8 @@ public class Runner implements ApplicationRunner {
 		
 		
 		//FUNZIONE PER LA RICERCA DELLE POSTAZIONI 
-		//Postazione p= postazione.trovaPostazione(4l);
-		//Postazione p1= postazione.trovaPostazione(10l);
+		Postazione p= postazione.trovaPostazione(1l);
+		Postazione p1= postazione.trovaPostazione(2l);
 
 		
 		
@@ -99,11 +99,16 @@ public class Runner implements ApplicationRunner {
 						//  utente non abbia gia prenotazione per quella data,
 					    //  postazione sia vuota per quella data)
 		//prenotazione.creaSalvaPrenotazione(LocalDate.of(2023, 10, 21),p1,  u6);
+		//prenotazione.creaSalvaPrenotazione(LocalDate.of(2022, 10, 21),p1,  u6); //errore data passata
+		//prenotazione.creaSalvaPrenotazione(LocalDate.of(2023, 10, 21),p1,  u6); //errore utente ha gia prenotazione per quel giorno 
+		//prenotazione.creaSalvaPrenotazione(LocalDate.of(2023, 10, 21),p1,  u4); //errore postazione gia occupata per quel giorno
+		
 
 		
 		
 		//FUNZIONE PER LA RICERCA DELLE POSTAZIONI PER CITTA' E TIPO
-		//System.out.println(postazione.trovaPostazionePerCittaeTipo(TipoPostazione.OpenSpace, "Lucilleshire"));
+		//System.out.println(postazione.trovaPostazionePerCittaeTipo(TipoPostazione.OpenSpace, "")); //inserire una città nella stringa
+		
 
 
 		
